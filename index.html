@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Programa de Avaliação</title>
+    <style>
+      body,
+      html {
+        margin: 0;
+        padding: 0;
+        font-family: "Graphik", -apple-system, BlinkMacSystemFont, "Segoe UI",
+          "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+          "Helvetica Neue", sans-serif;
+        height: 100%;
+        line-height: 1.5;
+      }
+      body {
+        background-image: url("images/mymvl1i.png");
+        background-size: cover;
+        background-position: center;
+        color: white;
+        display: flex;
+        flex-direction: column;
+      }
+      .logo {
+        width: 4rem; /* Redução do tamanho da logo para mobile */
+        height: auto;
+      }
+      .menu-icon {
+        width: 1.25rem;
+        height: 1.25rem;
+        cursor: pointer;
+      }
+      main {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 1.5rem 1rem;
+        max-width: 1200px;
+        margin: 0 auto;
+        width: 100%;
+        box-sizing: border-box;
+      }
+      h1 {
+        font-size: 2rem;
+        margin-bottom: 0.2rem;
+        font-weight: 700;
+        line-height: 1.2;
+      }
+      p {
+        font-size: 1rem;
+        margin-bottom: 3rem;
+        max-width: 600px;
+      }
+      .card {
+        background-color: white;
+        color: #1f0033;
+        padding: 1rem;
+        border-radius: 2rem;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        max-width: 400px;
+      }
+      .card h2 {
+        font-family: "Roboto", sans-serif; /* Altere a fonte para Roboto */
+        font-size: 1.6rem;
+        margin-bottom: 1rem;
+        font-weight: 700; /* Mantenha o valor de peso alto para robustez */
+      }
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-size: 0.875rem;
+        color: #666;
+      }
+      input {
+        width: 100%;
+        padding: 0.75rem;
+        margin-bottom: 1rem;
+        border: 1px solid #ccc;
+        border-radius: 0.5rem;
+        box-sizing: border-box;
+        font-size: 1rem;
+      }
+      input:focus {
+        outline: none;
+        border-color: #8a05be;
+        box-shadow: 0 0 0 2px rgba(138, 5, 190, 0.2);
+      }
+      button {
+        width: 100%;
+        padding: 0.75rem;
+        background-color: #8a05be;
+        color: white;
+        border: none;
+        border-radius: 0.5rem;
+        cursor: pointer;
+        font-size: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.3s ease;
+      }
+      button:hover {
+        background-color: #6d0499;
+      }
+      .arrow-icon {
+        margin-left: 0.5rem;
+      }
+      footer {
+        padding: 1rem;
+        text-align: center;
+        font-size: 0.85rem;
+        color: rgba(255, 255, 255, 0.7);
+      }
+      @media (min-width: 768px) {
+        main {
+          flex-direction: row;
+          align-items: center;
+          justify-content: space-between;
+        }
+        .content {
+          flex: 1;
+          padding-right: 1rem;
+        }
+        .card {
+          flex: 0 0 200px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <svg
+        class="menu-icon"
+        fill="none"
+        stroke="#1F0033"
+        viewBox="0 0 24 24"
+        xmlns="http://www.w3.org/2000/svg"
+      ></svg>
+    </header>
+
+    <main>
+      <div class="content">
+        <h1>100 milhões de clientes. Programa de Avaliação.</h1>
+        <p>
+          Criamos o Programa de Avaliação para quem busca conquistar uma renda
+          extra. Nossa missão é abrir N possibilidades na sua vida, trazendo
+          soluções que se encaixam nas suas necessidades.
+        </p>
+      </div>
+      <div class="card">
+        <h2>Programa de Avaliação</h2>
+        <!-- Link para continuar com os parâmetros UTM -->
+        <button id="continueButton" type="button">
+          Continuar
+          <svg
+            class="arrow-icon"
+            width="16"
+            height="16"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
+        </button>
+      </div>
+    </main>
+
+    <style>
+      .additional-footer {
+        padding: 0;
+        text-align: center;
+        font-size: 0.7rem;
+        color: rgba(255, 255, 255, 0.7);
+        margin-top: -2rem;
+      }
+    </style>
+
+    <script>
+      // Função para obter os parâmetros UTM da URL atual
+      function getUTMParameters() {
+        const params = new URLSearchParams(window.location.search);
+        const utm = {};
+        [
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_term",
+          "utm_content",
+        ].forEach((param) => {
+          if (params.has(param)) {
+            utm[param] = params.get(param);
+          }
+        });
+        return utm;
+      }
+
+      // Quando o botão "Continuar" for clicado, redireciona para /quiz com os parâmetros UTM
+      document
+        .getElementById("continueButton")
+        .addEventListener("click", function () {
+          const utmParams = getUTMParameters();
+          const baseUrl = "https://novidadenu.github.io/quiz"; // URL da próxima página
+          const queryString = new URLSearchParams(utmParams).toString(); // Constrói a query string
+
+          // Redireciona para a próxima página com os parâmetros UTM
+          window.location.href = `${baseUrl}?${queryString}`;
+        });
+    </script>
+  </body>
+</html>
